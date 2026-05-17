@@ -1,10 +1,9 @@
-/* ============================================================
+/*
    OILS — Oil Industry Link & Services (Pvt) Company
    Stylesheet
    Palette: Navy Blue · Yellow · White
    Fonts:   Montserrat (headings) · Roboto (body)
    ============================================================ */
-
 /* ──────────────────────────────────────────────────────────
    1. CUSTOM PROPERTIES
 ────────────────────────────────────────────────────────── */
@@ -329,9 +328,9 @@ section { padding: 5rem 0; }
 }
 .mobile-close svg { width: 28px; height: 28px; }
 
-/* ──────────────────────────────────────────────────────────
+/*
    8. HERO SECTION
-────────────────────────────────────────────────────────── */
+ */
 #hero {
   position: relative;
   min-height: 100svh;
@@ -366,8 +365,8 @@ section { padding: 5rem 0; }
 }
 @media (min-width: 768px) { .hero-content { text-align: left; } }
 
-
-  50%       { transform: scale(1.5); opacity: 0.6; }
+@keyframes pulse {
+  50%       { transform:scale(1.5); opacity:0.6; }
 }
 
 /* Headline */
