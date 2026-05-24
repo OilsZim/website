@@ -198,6 +198,8 @@ function showToast(message, duration) {
       'Website Enquiry from ' + fname + ' ' + lname +
       (service ? ' — ' + service : '')
     );
+    
+    // Note: Using %0A instead of \n ensures standard line breaks across all email apps
     var body = encodeURIComponent(
       'Name: ' + fname + ' ' + lname + '\n' +
       'Email: ' + email + '\n' +
@@ -205,20 +207,23 @@ function showToast(message, duration) {
       'Service: ' + (service || 'Not specified') + '\n\n' +
       'Message:\n' + message
     );
+    
     var mailtoLink = 'mailto:info@oils.co.zw?subject=' + subject + '&body=' + body;
 
-    /* ── Open email client ── */
-    window.location.href = mailtoLink;
+    showToast('✓ Opening your email client…');
 
-    /* ── Show success state after brief delay ── */
+    /* ── Show success state and execute link together ── */
     setTimeout(function() {
+      // 1. Fire the mail application assignment
+      window.location.href = mailtoLink;
+      
+      // 2. Safely transform your UI state right after
       form.style.display = 'none';
       if (successEl) {
         successEl.style.display = 'block';
       }
-    }, 600);
-
-    showToast('✓ Opening your email client…');
+      form.reset();
+    }, 400); 
   });
 })();
 
